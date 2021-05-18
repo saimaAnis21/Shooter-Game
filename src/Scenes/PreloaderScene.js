@@ -3,6 +3,8 @@ import button2 from '../assets/ui/blue_button02.png';
 import button3 from '../assets/ui/blue_button03.png';
 import box from '../assets/ui/grey_box.png';
 import checkedbox from '../assets/ui/blue_boxCheckmark.png';
+import bgmusic from '../assets/TownTheme.mp3';
+
  
 export default class PreloaderScene extends Phaser.Scene {
   constructor () {
@@ -89,11 +91,12 @@ export default class PreloaderScene extends Phaser.Scene {
       this.load.image('phaserLogo', '../assets/logo.png');
       this.load.image('box', box);
       this.load.image('checkedBox', checkedbox);
-      this.load.audio('bgMusic', ['../assets/TownTheme.mp3']);
+      this.load.audio('bgMusic', [bgmusic]);
+      
   }
 
   ready () {
-    this.scene.start('Options');
+    this.scene.start('Title');
     this.readyCount++;
     if (this.readyCount === 2) {
       this.scene.start('Title');
