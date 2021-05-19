@@ -4,8 +4,12 @@ import button3 from '../assets/ui/blue_button03.png';
 import box from '../assets/ui/grey_box.png';
 import checkedbox from '../assets/ui/blue_boxCheckmark.png';
 import bgmusic from '../assets/TownTheme.mp3';
+import sprplayer from '../assets/sprPlayer.png';
+import sprenemy from '../assets/sprEnemy0.png';
+import sprlaser from '../assets/sprLaserPlayer.png';
+import sprexplosion from '../assets/sprExplosion.png';
+import sprbg0 from '../assets/sprBg0.png'; 
 
- 
 export default class PreloaderScene extends Phaser.Scene {
   constructor () {
     super('Preloader');
@@ -92,6 +96,21 @@ export default class PreloaderScene extends Phaser.Scene {
       this.load.image('box', box);
       this.load.image('checkedBox', checkedbox);
       this.load.audio('bgMusic', [bgmusic]);
+      this.load.image("sprBg0", sprbg0);
+      this.load.image("sprBg1", "content/sprBg1.png");
+      this.load.spritesheet("sprExplosion", sprexplosion, {
+        frameWidth: 32,
+        frameHeight: 32
+      });
+      this.load.spritesheet("sprEnemy0", sprenemy, {
+        frameWidth: 16,
+        frameHeight: 16
+      });
+      this.load.image("sprLaserPlayer", sprlaser);
+      this.load.spritesheet("sprPlayer", sprplayer, {
+        frameWidth: 16,
+        frameHeight: 16
+      });
       
   }
 
