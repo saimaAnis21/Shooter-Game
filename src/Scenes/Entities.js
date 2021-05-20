@@ -28,13 +28,13 @@ class Entity extends Phaser.GameObjects.Sprite {
             this.body.setVelocity(0, 0);
       
             this.on('animationcomplete', function() {
-      
-              if (canDestroy) {
-                this.destroy();
-              }
-              else {
-                this.setVisible(false);
-              }
+              this.destroy();
+              // if (canDestroy) {
+              //   this.destroy();
+              // }
+              // else {
+              //   this.setVisible(false);
+              // }
       
             }, this);
       
@@ -50,6 +50,7 @@ class Player extends Entity {
         this.setData("isShooting", false);
         this.setData("timerShootDelay", 10);
         this.setData("timerShootTick", this.getData("timerShootDelay") - 1);
+        
     }
 
     moveUp() {
@@ -86,6 +87,18 @@ class Player extends Entity {
               this.setData("timerShootTick", 0);
             }
           }
+    }
+
+    onDestroy(){
+      
+      this.scene.time.addEvent({ // go to game over scene
+        delay: 500,
+        callback: function() {
+          this.scene.scene.start("GameOver");
+        },
+        callbackScope: this,
+        loop: false
+      });
     }
 }
 

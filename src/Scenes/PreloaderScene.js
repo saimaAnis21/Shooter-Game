@@ -8,7 +8,10 @@ import sprplayer from '../assets/sprPlayer.png';
 import sprenemy from '../assets/sprEnemy0.png';
 import sprlaser from '../assets/sprLaserPlayer.png';
 import sprexplosion from '../assets/sprExplosion.png';
-import sprbg0 from '../assets/sprBg0.png'; 
+import sprbg0 from '../assets/sprBg0.png';
+import sprrestart from '../assets/sprBtnRestart.png'; 
+import sprrestartdown from '../assets/sprBtnRestartDown.png'; 
+import sprrestarthover from '../assets/sprBtnRestartHover.png'; 
 
 export default class PreloaderScene extends Phaser.Scene {
   constructor () {
@@ -92,6 +95,9 @@ export default class PreloaderScene extends Phaser.Scene {
        // load assets needed in our game
       this.load.image('blueButton1', button2);
       this.load.image('blueButton2', button3);
+      this.load.image('sprBtnRestart', sprrestart);
+      this.load.image('sprBtnRestartDown', sprrestartdown);
+      this.load.image('sprBtnRestartHover', sprrestarthover);
       this.load.image('phaserLogo', '../assets/logo.png');
       this.load.image('box', box);
       this.load.image('checkedBox', checkedbox);

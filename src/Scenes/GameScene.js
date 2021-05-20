@@ -5,6 +5,8 @@ import { Player, GunShip, ScrollingBackground } from './Entities';
 export default class GameScene extends Phaser.Scene {
   constructor () {
     super('Game');
+    this.score=0;
+    
   }
  
   preload () {
@@ -19,6 +21,20 @@ export default class GameScene extends Phaser.Scene {
       frameRate: 20,
       repeat: -1
     });
+
+    this.anims.create({
+      key: "sprExplosion",
+      frames: this.anims.generateFrameNumbers("sprExplosion"),
+      frameRate: 20,
+      repeat: 0
+    });
+
+    // this.anims.create({
+    //   key: "sprPlayer",
+    //   frames: this.anims.generateFrameNumbers("sprPlayer"),
+    //   frameRate: 20,
+    //   repeat: -1
+    // });
 
     // this.backgrounds = [];
     //   for (var i = 0; i < 5; i++) { // create five scrolling backgrounds
@@ -55,10 +71,14 @@ export default class GameScene extends Phaser.Scene {
       loop: true
     });
 
+    
+
     this.physics.add.collider(this.playerLasers, this.enemies, function(playerLaser, enemy) {
       if (enemy) {
         if (enemy.onDestroy !== undefined) {
           enemy.onDestroy();
+          this.score += 5;
+          this.scoreText.scoreText = "Score:" + this.score;
         }
       
         enemy.explode(true);
@@ -71,8 +91,18 @@ export default class GameScene extends Phaser.Scene {
           !enemy.getData("isDead")) {
         player.explode(false);
         enemy.explode(true);
+        player.onDestroy();
       }
     });
+    this.scoreText = this.add.text(this.game.config.width-150 , this.game.config.height-20, "SCORE:0", {
+      fontFamily: 'monospace',
+      fontSize: 48,
+      fontStyle: 'bold',
+      color: '#ffffff',
+      align: 'center'
+    });
+    this.scoreText.setOrigin(0.5);
+        //this.scoreText =   this.add.text(this.game.config.width-150 , this.game.config.height-20,'score:0', {fontSize: '32px', fill:'#000'});
 
   }
 
@@ -106,5 +136,9 @@ export default class GameScene extends Phaser.Scene {
       this.player.setData("isShooting", false);
     }
   }
+
+        
   }
+
+ 
 };
