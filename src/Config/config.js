@@ -6,6 +6,9 @@ export default {
   width: 800,
   height: 600,
   backgroundColor: "black",
+  dom: {
+    createContainer: true
+},
   physics: {
     default: "arcade",
     arcade: {

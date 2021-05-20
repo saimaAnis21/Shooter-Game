@@ -12,6 +12,8 @@ import sprbg0 from '../assets/sprBg0.png';
 import sprrestart from '../assets/sprBtnRestart.png'; 
 import sprrestartdown from '../assets/sprBtnRestartDown.png'; 
 import sprrestarthover from '../assets/sprBtnRestartHover.png'; 
+import form from '../Objects/UserNameForm';
+import '../assets/styles.css';
 
 export default class PreloaderScene extends Phaser.Scene {
   constructor () {
@@ -117,6 +119,8 @@ export default class PreloaderScene extends Phaser.Scene {
         frameWidth: 16,
         frameHeight: 16
       });
+
+      form.createForm(this);
       
   }
 

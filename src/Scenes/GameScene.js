@@ -1,12 +1,11 @@
 import 'phaser';
 import logoImg from '../assets/logo.png';
-import { Player, GunShip, ScrollingBackground } from './Entities';
+import { Player, GunShip} from './Entities';
+import form from '../Objects/UserNameForm';
  
 export default class GameScene extends Phaser.Scene {
   constructor () {
     super('Game');
-    
-  
   }
  
   preload () {
@@ -15,6 +14,10 @@ export default class GameScene extends Phaser.Scene {
   }
  
   create () {
+    form.removeForm(this);
+    //console.log(this.sys.game.globals.username);
+    let user = this.sys.game.globals.username;
+    console.log(user);
     this.anims.create({
       key: "sprEnemy0",
       frames: this.anims.generateFrameNumbers("sprEnemy0"),
@@ -35,12 +38,6 @@ export default class GameScene extends Phaser.Scene {
     //   frameRate: 20,
     //   repeat: -1
     // });
-
-    // this.backgrounds = [];
-    //   for (var i = 0; i < 5; i++) { // create five scrolling backgrounds
-    //     var bg = new ScrollingBackground(this, "sprBg0", i * 10);
-    //     this.backgrounds.push(bg);
-    //   }
 
     this.player = new Player(
       this,
@@ -72,9 +69,9 @@ export default class GameScene extends Phaser.Scene {
     });
 
     
-    let scoreText = this.add.text(this.game.config.width-150 , this.game.config.height-20, "SCORE:0", {
+    let scoreText = this.add.text(this.game.config.width-250 , this.game.config.height-30, user+"'s SCORE:0", {
       fontFamily: 'monospace',
-      fontSize: 48,
+      fontSize: 40,
       fontStyle: 'bold',
       color: '#ffffff',
       align: 'center'
@@ -82,16 +79,11 @@ export default class GameScene extends Phaser.Scene {
     scoreText.setOrigin(0.5);
     let score=0;
     this.physics.add.collider(this.playerLasers, this.enemies, function(playerLaser, enemy) {
-      // if (enemy) {
-      //   if (enemy.onDestroy !== undefined) {          
-      //     enemy.onDestroy();        
-          
-      //   }
+      
         score += 5;
-        console.log(score);
-        scoreText.setText("Score:"+score
+        scoreText.setText(user+"'s Score:"+score
         );
-        console.log(scoreText.text);
+        
         enemy.explode(true);
         playerLaser.destroy();
       
@@ -106,14 +98,12 @@ export default class GameScene extends Phaser.Scene {
       }
     });
     
-        //this.scoreText =   this.add.text(this.game.config.width-150 , this.game.config.height-20,'score:0', {fontSize: '32px', fill:'#000'});
+       
 
   }
 
   update(){
-    // for (var i = 0; i < this.backgrounds.length; i++) {
-    //   this.backgrounds[i].update();
-    // }
+   
 
     if (!this.player.getData("isDead")) {
     this.player.update();
