@@ -5,8 +5,8 @@ import { Player, GunShip, ScrollingBackground } from './Entities';
 export default class GameScene extends Phaser.Scene {
   constructor () {
     super('Game');
-    this.score=0;
     
+  
   }
  
   preload () {
@@ -72,18 +72,29 @@ export default class GameScene extends Phaser.Scene {
     });
 
     
-
+    let scoreText = this.add.text(this.game.config.width-150 , this.game.config.height-20, "SCORE:0", {
+      fontFamily: 'monospace',
+      fontSize: 48,
+      fontStyle: 'bold',
+      color: '#ffffff',
+      align: 'center'
+    });
+    scoreText.setOrigin(0.5);
+    let score=0;
     this.physics.add.collider(this.playerLasers, this.enemies, function(playerLaser, enemy) {
-      if (enemy) {
-        if (enemy.onDestroy !== undefined) {
-          enemy.onDestroy();
-          this.score += 5;
-          this.scoreText.scoreText = "Score:" + this.score;
-        }
-      
+      // if (enemy) {
+      //   if (enemy.onDestroy !== undefined) {          
+      //     enemy.onDestroy();        
+          
+      //   }
+        score += 5;
+        console.log(score);
+        scoreText.setText("Score:"+score
+        );
+        console.log(scoreText.text);
         enemy.explode(true);
         playerLaser.destroy();
-      }
+      
     });
 
     this.physics.add.overlap(this.player, this.enemies, function(player, enemy) {
@@ -94,14 +105,7 @@ export default class GameScene extends Phaser.Scene {
         player.onDestroy();
       }
     });
-    this.scoreText = this.add.text(this.game.config.width-150 , this.game.config.height-20, "SCORE:0", {
-      fontFamily: 'monospace',
-      fontSize: 48,
-      fontStyle: 'bold',
-      color: '#ffffff',
-      align: 'center'
-    });
-    this.scoreText.setOrigin(0.5);
+    
         //this.scoreText =   this.add.text(this.game.config.width-150 , this.game.config.height-20,'score:0', {fontSize: '32px', fill:'#000'});
 
   }

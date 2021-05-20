@@ -115,6 +115,8 @@ class GunShip extends Entity {
       this.body.velocity.y = Phaser.Math.Between(50, 100);
       this.play("sprEnemy0");
     }
+
+    
   }
 
 class ScrollingBackground {
