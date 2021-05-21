@@ -9,8 +9,8 @@ const leaderboard = (() => {
     
 
     const sendData = async (name, score) => {
-        let url = "https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/4ZLjR5nQSbLedz7FCixD/scores/";
-        const result = { user: name, score };
+        let url = "https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/eGdSZNBSweDQpszPD44z/scores/";
+        const result = { user: name, score  };
         fetch(url, {
             method: 'POST',
             mode: 'cors',
@@ -28,7 +28,7 @@ const leaderboard = (() => {
     };
 
     const receiveData = async() => {
-        let url = "https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/4ZLjR5nQSbLedz7FCixD/scores/";
+        let url = "https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/eGdSZNBSweDQpszPD44z/scores/";
         const scores = await fetch(url, {
             method: 'GET',
             mode: 'cors'

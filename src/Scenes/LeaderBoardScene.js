@@ -6,7 +6,7 @@ import Button from '../Objects/Button';
 
 export default class LeaderboardScene extends Phaser.Scene {
     constructor() {
-      super('Leaderboard');
+      super('LeaderBoard');
     }
   
     create() {
