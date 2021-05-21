@@ -1,49 +1,77 @@
-# Phaser 3 Webpack Project Template
+# Shooter Game - Phaser 3 
 
-A Phaser 3 project template with ES6 support via [Babel 7](https://babeljs.io/) and [Webpack 4](https://webpack.js.org/) that includes hot-reloading for development and production-ready builds.
+A  ![](https://img.shields.io/badge/Microverse-blueviolet)  capstone project for Javascript Module
 
-This has been updated for Phaser 3.50.0 version and above.
+A Game in which the player shoots enemies and gains points. If the player crashes into an enemy the game ends.
+![](todo-list.png)
 
-Loading images via JavaScript module `import` is also supported, although not recommended.
+## Game Design and Instructions
 
-## Requirements
+- Play as a space craft shooting oncoming enemy scpaeships.
+- Gain 5 points for every enemyship shot.
+- The only way to survive is to avoid crashing into any of the oncoming enemy scpaeships.
 
-[Node.js](https://nodejs.org) is required to install dependencies and run scripts via `npm`.
+## Game Controls
+To control the space craft, use the up/down/letf/right arrow keys on the keyboard.
 
-## Available Commands
+- Press up arrow key to move the craft upwards.
+- Press down arrow to move the craft downwards.
+- Press left arrow to move the craft left.
+- Press right arrow to move the craft right.
 
-| Command | Description |
-|---------|-------------|
-| `npm install` | Install project dependencies |
-| `npm start` | Build project and open web server running project |
-| `npm run build` | Builds code bundle with production settings (minification, uglification, etc..) |
+## Built With
 
-## Writing Code
+- JavaScript
+- LeaderBoard API
+- Phaser 3
+- webpack
+- Jest
 
-After cloning the repo, run `npm install` from your project directory. Then, you can start the local development server by running `npm start`.
+## Live Demo
 
-After starting the development server with `npm start`, you can edit any files in the `src` folder and webpack will automatically recompile and reload your server (available at `http://localhost:8080` by default).
+## Getting Started
 
-## Customizing the Template
+To get a local copy up and running follow these simple example steps.
 
-### Babel
+- Clone this project by typing ```git clone git@github.com:saimaAnis21/to-do-list.git```
+- cd into to-do-list
+- Run git pull origin main
+If you want to repack the file
+- Run npm install on the terminal to install dependancies
+- Run npm run build to pack the files in the src folder
+- Go to the dist folder and open index.html
+- Run npm run start to open it on a live server
+Else
+- Just Go to the dist folder and open index.html
 
-You can write modern ES6+ JavaScript and Babel will transpile it to a version of JavaScript that you want your project to support. The targeted browsers are set in the `.babelrc` file and the default currently targets all browsers with total usage over "0.25%" but excludes IE11 and Opera Mini.
 
- ```
-"browsers": [
-  ">0.25%",
-  "not ie 11",
-  "not op_mini all"
-]
- ```
+## Author
 
-### Webpack
+👤 **Saima**
 
-If you want to customize your build, such as adding a new webpack loader or plugin (i.e. for loading CSS or fonts), you can modify the `webpack/base.js` file for cross-project changes, or you can modify and/or create new configuration files and target them in specific npm tasks inside of `package.json'.
+- GitHub: [@saimaAnis21](https://github.com/saimaAnis21)
+- Twitter: [@SheTALKS](https://twitter.com/SheTALKS6)
+- LinkedIn: [Saima Anis](https://www.linkedin.com/in/saima-anis-3a07921b2/)
 
-## Deploying Code
+## Acknowledgements
+- Microverse
+- Phaser 3
 
-After you run the `npm run build` command, your code will be built into a single bundle located at `dist/bundle.min.js` along with any other assets you project depended. 
+## 🤝 Contributing
 
-If you put the contents of the `dist` folder in a publicly-accessible location (say something like `http://mycoolserver.com`), you should be able to open `http://mycoolserver.com/index.html` and play your game.
+Contributions, issues, and feature requests are welcome!
+
+
+## Show your support
+
+Give a ⭐️ if you like this project!
+
+## 📝 License
+
+Copyright 2020 Saima Anis
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
