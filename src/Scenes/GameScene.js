@@ -2,6 +2,7 @@ import 'phaser';
 import logoImg from '../assets/logo.png';
 import { Player, GunShip} from './Entities';
 import form from '../Objects/UserNameForm';
+import leaderboard from '../LeaderBoard';
  
 export default class GameScene extends Phaser.Scene {
   constructor () {
@@ -16,7 +17,9 @@ export default class GameScene extends Phaser.Scene {
   create () {
     form.removeForm(this);
     //console.log(this.sys.game.globals.username);
+    //Player name
     let user = this.sys.game.globals.username;
+
     console.log(user);
     this.anims.create({
       key: "sprEnemy0",
@@ -90,8 +93,11 @@ export default class GameScene extends Phaser.Scene {
     });
 
     this.physics.add.overlap(this.player, this.enemies, function(player, enemy) {
-      if (!player.getData("isDead") &&
-          !enemy.getData("isDead")) {
+      if (!player.getData("isDead") && !enemy.getData("isDead")) {
+        const playerName = user;
+        const finalScore = score;
+        console.log(finalScore);
+        leaderboard.sendData(playerName, finalScore);
         player.explode(false);
         enemy.explode(true);
         player.onDestroy();

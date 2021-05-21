@@ -24,6 +24,9 @@ export default class TitleScene extends Phaser.Scene {
   // Credits
   this.creditsButton = new Button(this, config.width/2, config.height/2 + 100, 'blueButton1', 'blueButton2', 'Credits', 'Credits');
  
+  // Leaderboard
+  this.leaderboardButton = new Button(this, config.width/2, config.height/2 + 200, 'blueButton1', 'blueButton2', 'LeaderBoard', 'LeaderBoard');
+
   form.showForm();
   
 
